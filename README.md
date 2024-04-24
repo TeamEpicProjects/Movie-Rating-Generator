@@ -6,10 +6,6 @@ Project Description:
 The Problem we face lack of critical ratings available for movies and shows, most websites that have user's rating sometimes doesn't align with reviews. We can observe user ratings are lower for genres like comedy, horror, musical, history, art and few more less common and hybrid types. The project implements a web based solution integrated with AI component (sentiment analysis) to calculate ratings out of user reviews.
 
 
-Project Duration: 
-1 week
-
-
 Industry: 
 Entertainment
 
