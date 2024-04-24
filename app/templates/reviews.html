@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .review-container {
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .review-container h3 {
+            margin-top: 0;
+        }
+        .review-container p {
+            margin: 5px 0;
+        }
+        .review-container .timestamp {
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Reviews</h1>
+    <div class="review-container">
+        {% for review in reviews %}
+        <div class="review-item">
+            <h3>
+                {% if review.movie_title %}
+                    {{ review.movie_title }} ({{ review.imdb_id }})
+                {% else %}
+                    Review #{{ review.id }} ({{ review.imdb_id }})
+                {% endif %}
+            </h3>
+            <p>{{ review.review_text }}</p>
+            {% if review.overall_rating %}
+            <p>Overall Rating: {{ review.overall_rating }}/5</p>
+            {% endif %}
+            {% if review.created_at %}
+            <p class="timestamp">Created: {{ review.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+            {% endif %}
+            {% if review.updated_at %}
+            <p class="timestamp">Updated: {{ review.updated_at.strftime('%Y-%m-%d %H:%M:%S') }}</p>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
